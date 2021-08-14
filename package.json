@@ -1,8 +1,9 @@
 {
   "name": "uzakov-ckeditor5-react-config",
   "author": "Uzakov Nikita",
-  "version": "0.1.0",
-  "private": false,
+  "version": "0.1.1",
+  "main": "dist/index.js",
+  "files": ["dist"],
   "dependencies": {
     "@babel/core": "7.12.3",
     "@ckeditor/ckeditor5-autoformat": "^29.1.0",
@@ -83,7 +84,7 @@
   },
   "scripts": {
     "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
+    "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
     "test": "node scripts/test.js"
   },
   "eslintConfig": {
@@ -160,5 +161,8 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0"
   }
 }
